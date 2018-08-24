@@ -11,9 +11,10 @@ class BST
         int max();
         int height();
         void levelOrderDisplay();
-        void preOrderDisplay();
-        void inOrderDisplay();
-        void postOrderDisplay();
+        void preOrderDisplay(Node<int>* node);
+        void inOrderDisplay(Node<int>* node);
+        void postOrderDisplay(Node<int>* node);
+        bool checkBST(Node<int>* node);
     private:
         int size;
         Node<int>* root;
@@ -164,6 +165,47 @@ void BST::levelOrderDisplay()
     
     while(!q.empty())
     {
+        Node<int>* current = q.front();
+        std::cout << current->data << " ";
 
+        if(current->left != NULL)
+            q.push(current->left);
+
+        if(current->right != NULL)
+            q.push(current->right);
+
+        q.pop();
     }
+}
+
+void BST::preOrderDisplay(Node<int>* node)
+{
+    if(node == NULL)
+        return;
+    cout << node->data << " \n";
+    preOrderDisplay(node->left);
+    preOrderDisplay(node->right);
+}
+
+void BST::inOrderDisplay(Node<int>* node)
+{
+    if(node == NULL)
+        return;
+    preOrderDisplay(node->left);
+    cout << node->data << " \n";
+    preOrderDisplay(node->right);
+}
+
+void BST::postOrderDisplay(Node<int>* node)
+{
+    if(node == NULL)
+        return;
+    postOrderDisplay(node->left);
+    postOrderDisplay(node->right);
+    cout << node->data << " \n";
+}
+
+bool checkBST(Node<int>* node)
+{
+
 }
