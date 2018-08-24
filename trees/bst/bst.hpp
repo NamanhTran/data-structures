@@ -5,12 +5,13 @@
 class BST
 {
     public:
+        BST();
         bool search(int n);
         Node<int>* removeNode(Node<int>* root, int n);
         void insertNode(int n);
-        int min();
-        int max();
-        int height();
+        Node<int>* min(Node<int>* node);
+        Node<int>* max(Node<int>* node);
+        int findHeight(Node<int>* node);
         void levelOrderDisplay();
         void preOrderDisplay(Node<int>* node);
         void inOrderDisplay(Node<int>* node);
@@ -32,7 +33,7 @@ bool BST::search(int n)
 {
     if(size == 0)
     {
-        cout << "The tree is empty\n";
+        std::cout << "The tree is empty\n";
         return false;
     }
     
@@ -41,12 +42,12 @@ bool BST::search(int n)
         Node<int>* temp = root;
         while(temp != NULL)
         {
-            if(n == data)
+            if(n == temp->data)
             {
                 return true;
             }
 
-            else if(n > data)
+            else if(n > temp->data)
             {
                 temp = temp->right;
             }
@@ -121,7 +122,7 @@ void BST::insertNode(int n)
 
     else
     {
-        Node<int> trav = root;
+        Node<int>* trav = root;
         while(trav != NULL)
         {
             if(trav->data == n)
@@ -134,7 +135,7 @@ void BST::insertNode(int n)
             {
                 if(trav->left == NULL)
                 {
-                    Node<int> temp = new Node;
+                    Node<int>* temp = new Node<int>;
                     temp->data = n;
                     trav->left = temp;
                 }
@@ -149,7 +150,7 @@ void BST::insertNode(int n)
             {
                 if(trav->right == NULL)
                 {
-                    Node<int>* temp = new Node;
+                    Node<int>* temp = new Node<int>;
                     temp->data = n;
                     trav->right = temp;
                 }
@@ -163,27 +164,27 @@ void BST::insertNode(int n)
     }
 }
 
-int BST::min()
+Node<int>* BST::min(Node<int>* node)
 {
-    Node<int> trav = root;
+    Node<int>* trav = node;
     while(trav->left != NULL)
     {
         trav = trav->left;
     }
 
-    return trav->data;
+    return trav;
 }
 
-int BST::max()
+Node<int>* BST::max(Node<int>* node)
 {
-    Node<int> trav = root;
+    Node<int>* trav = node;
     
     while(trav->right != NULL)
     {
         trav = trav->right;
     }
 
-    return trav->data;
+    return trav;
 }
 
 int BST::findHeight(Node<int>* node)
@@ -193,12 +194,12 @@ int BST::findHeight(Node<int>* node)
         return -1;
     }
 
-    return max(findHeight(node->left), findHeight(node->right)) + 1;
+    return std::max(findHeight(node->left), findHeight(node->right)) + 1;
 }
 
 void BST::levelOrderDisplay()
 {
-    queue<Node*> q;
+    std::queue<Node<int>*> q;
     q.push(root);
     
     while(!q.empty())
@@ -220,7 +221,7 @@ void BST::preOrderDisplay(Node<int>* node)
 {
     if(node == NULL)
         return;
-    cout << node->data << " \n";
+    std::cout << node->data << " \n";
     preOrderDisplay(node->left);
     preOrderDisplay(node->right);
 }
@@ -230,7 +231,7 @@ void BST::inOrderDisplay(Node<int>* node)
     if(node == NULL)
         return;
     preOrderDisplay(node->left);
-    cout << node->data << " \n";
+    std::cout << node->data << " \n";
     preOrderDisplay(node->right);
 }
 
@@ -240,7 +241,7 @@ void BST::postOrderDisplay(Node<int>* node)
         return;
     postOrderDisplay(node->left);
     postOrderDisplay(node->right);
-    cout << node->data << " \n";
+    std::cout << node->data << " \n";
 }
 
 bool BST::isBstUtil(Node<int>* root, int minValue, int maxValue)

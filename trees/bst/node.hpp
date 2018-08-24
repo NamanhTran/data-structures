@@ -1,9 +1,10 @@
+#include <stdio.h>
 #include <iostream>
 
 template <typename E>
-typedef struct node
+struct Node
 {
-    struct node* left;
-    struct node* right;
+    struct Node* left;
+    struct Node* right;
     E data;
-}Node;
+};
