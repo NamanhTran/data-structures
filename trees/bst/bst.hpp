@@ -1,11 +1,12 @@
 #include "node.hpp"
 #include <queue>
+#include <limits.h>
 
 class BST
 {
     public:
         bool search(int n);
-        void removeNode();
+        Node<int>* removeNode(Node<int>* root, int n);
         void insertNode(int n);
         int min();
         int max();
@@ -14,6 +15,7 @@ class BST
         void preOrderDisplay(Node<int>* node);
         void inOrderDisplay(Node<int>* node);
         void postOrderDisplay(Node<int>* node);
+        bool isBstUtil(Node<int>* root, int minValue, int maxValue);
         bool checkBST(Node<int>* node);
     private:
         int size;
@@ -59,18 +61,54 @@ bool BST::search(int n)
     }
 }
 
-//not finished
-void BST::removeNode(int n)
+Node<int>* BST::removeNode(Node<int>* node, int n)
 {
-    Node<int>* temp = root;
-    Node<int>* prev = root;
-    while(temp != NULL)
+    if(node == NULL)
+        return node;
+    
+    else if(n < node->data)
+        node->left = removeNode(node->left, n);
+
+    else if(n > node->data)
+        node->right = removeNode(node->right, n);
+
+    else
     {
-        if(temp->data == n && temp != root)
+        //case for no child
+        if(node->left == NULL && node->right == NULL)
         {
-            
+            free(node);
+            node = NULL;
+            return node;
         }
+
+        //case for one child
+        else if(node->left == NULL)
+        {
+            Node<int>* temp = node;
+            node = node->right;
+            free(temp);
+            return node;
+        }
+
+        else if(node->right == NULL)
+        {
+            Node<int>* temp = node;
+            node = node->left;
+            free(temp);
+            return node;
+        }
+
+        else
+        {
+            Node<int>* temp = min(node->right);
+            node->data = temp->data;
+            root->right = removeNode(node->right, temp->data);
+        }
+            
     }
+
+    return node;
 }
 
 void BST::insertNode(int n)
@@ -205,7 +243,19 @@ void BST::postOrderDisplay(Node<int>* node)
     cout << node->data << " \n";
 }
 
-bool checkBST(Node<int>* node)
+bool BST::isBstUtil(Node<int>* root, int minValue, int maxValue)
 {
+    if(root == NULL)
+        return true;
 
+    if(root->data > minValue && root->data < maxValue && isBstUtil(root->left, minValue, root->data) && isBstUtil(root->right, root->data, maxValue))
+        return true;
+
+    else
+        return false;
+}
+
+bool BST::checkBST(Node<int>* node)
+{
+    return isBstUtil(root, INT_MIN, INT_MAX);
 }
