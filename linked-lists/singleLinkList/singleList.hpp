@@ -12,20 +12,20 @@ class LinkedList
     public:
 		LinkedList();
 		
-		//operation for list
-		~LinkedList();
-    	void addToList(const std::string n);
-    	void deleteFront();
-		bool find(const std::string n);
-		void display();
-        void reverse();
+	//operation for list
+	~LinkedList();
+    void addToList(const std::string n);
+    void deleteFront();
+	bool find(const std::string n);
+	void display();
+	void reverse();
 };
 
 LinkedList::LinkedList()
 {
 	//creates the list
-    head = NULL;
-    size = 0;
+	head = NULL;
+	size = 0;
 }
 
 void LinkedList::addToList(const std::string n)
