@@ -7,7 +7,7 @@ class LinkedList
 {
     private:
         Node* head;       
-       	int size;
+	int size;
 
     public:
 	LinkedList();
