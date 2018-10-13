@@ -1,9 +1,9 @@
-#include "bst.hpp"
+#include "myStack.hpp"
 
 using namespace std;
 
 int main()
 {
-    BST s;
+    Stack<int> s;
     return 0;
 }

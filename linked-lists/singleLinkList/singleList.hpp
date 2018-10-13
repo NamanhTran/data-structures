@@ -6,12 +6,12 @@
 class LinkedList
 {
     private:
-        Node* head;       
+        Node* head;
 	int size;
 
     public:
 	LinkedList();
-		
+
 	//operation for list
 	~LinkedList();
 	void addToList(const std::string n);
@@ -75,7 +75,7 @@ bool LinkedList::find(const std::string n)
 		{
 			return true;
 		}
-		
+
 		else
 		{
 			temp = temp->next;
@@ -94,12 +94,12 @@ void LinkedList::deleteFront()
 	free(temp);
 }
 
-LinkedList::reverse()
+void LinkedList::reverse()
 {
 	Node* current = head;
 	Node* prev = NULL;
 	Node* next = NULL;
-    
+
 	while(current != NULL)
 	{
 		next = current->next;

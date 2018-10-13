@@ -47,23 +47,17 @@ template <typename T>
 Node<T>* find(Node<T>* node, T value)
 {
     Node<T>* trav = node;
-    
+
     while(trav != NULL)
     {
         if(trav->data == value)
-        {
             return trav;
-        }
 
         else if(trav->data > value)
-        {
             trav = trav->left;
-        }
 
         else
-        {
             trav = trav->right;
-        }
     }
 }
 
@@ -86,9 +80,9 @@ Node<T>* AVL<T>::insert(Node<T>* root,T value)
 
         if(trav->data > value)
            trav = trav->left;
-        
+
         else
-           trav = trav->right; 
+           trav = trav->right;
     }
 
     trav = node;
@@ -112,10 +106,10 @@ void AVL<T>::checkRotations(Node<T>* node)
 		int leftBf = getBalanceFactor(node->left);
 
 		if(leftBf > 0)
-				leftRotation(node);
+            leftRotation(node);
 
 		else
-				rightLeftRotation(node);
+            rightLeftRotation(node);
 	}
 
 	else if(bf <= -2)
@@ -168,8 +162,8 @@ void AVL<T>::updateHeight(Node<T>* node)
 
 	if(leftHeight > rightHeight)
 		node->height = leftHeight;
-	
+
 	else
-		node->height = rightHeight;	
+		node->height = rightHeight;
 }
 #endif

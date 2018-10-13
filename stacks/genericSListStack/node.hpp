@@ -5,10 +5,13 @@
 #include <string>
 #include "singleList.hpp"
 
+// Have to forward declare LinkedList class as a template class
+template<typename E> class LinkedList;
+
 template <typename E>
 class Node
 {
-    friend class LinkedList;
+    friend class LinkedList<E>;
 
     private:
         E data;

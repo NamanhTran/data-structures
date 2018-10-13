@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdexcept>
+
 #include "singleList.hpp"
 
 template <typename E>
@@ -7,9 +9,9 @@ class Stack
     public:
         int getSize() const;
         bool empty() const;
-        const E& top() const throw(StackEmpty);
+        const E& top() const;
         void push(const E& e);
-        void pop() throw(StackEmpty);
+        void pop();
 
     private:
         LinkedList<E> S;
@@ -33,21 +35,23 @@ bool Stack<E>::empty() const
 }
 
 template <typename E>
-const E& Stack<E>::top() const throw(StackEmpty)
+const E& Stack<E>::top() const
 {
-   return S.top();
+    if(empty())
+        throw std::logic_error("Stack is empty");
+    return S.top();
 }
 
 template <typename E>
 void Stack<E>::push(const E& e)
 {
-    S.addToList(e);    
+    S.addToList(e);
 }
 
 template <typename E>
-void Stack<E>::pop() throw(StackEmpty)
+void Stack<E>::pop()
 {
+    if(empty())
+        throw std::logic_error("Stack is empty");
     S.deleteFront();
 }
-
-
