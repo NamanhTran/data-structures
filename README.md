@@ -4,8 +4,8 @@ Data Structures
   
       List Data Structures
 
-        - Singley Linked List
-        - Doubley Linked List
+        - Singly Linked List
+        - Doubly Linked List
         - Circularly Linked List
 
       Queues
@@ -47,5 +47,5 @@ Data Structures
         - Incidence Matrix
         
   **Big O Cheat Sheet**
-  
+  ![alt text](https://raw.githubusercontent.com/NamanhTran/data-structures/master/etc/pictures/Screenshot%20from%202018-10-13%2013-42-11.png)
         
