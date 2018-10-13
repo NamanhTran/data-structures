@@ -7,46 +7,46 @@ class LinkedList
 {
     private:
         Node* head;       
-       	int size;
+	int size;
 
     public:
-		LinkedList();
+	LinkedList();
 		
-		//operation for list
-		~LinkedList();
-    	void addToList(const std::string n);
-    	void deleteFront();
-		bool find(const std::string n);
-		void display();
-        void reverse();
+	//operation for list
+	~LinkedList();
+	void addToList(const std::string n);
+	void deleteFront();
+	bool find(const std::string n);
+	void display();
+	void reverse();
 };
 
 LinkedList::LinkedList()
 {
 	//creates the list
-    head = NULL;
-    size = 0;
+	head = NULL;
+	size = 0;
 }
 
 void LinkedList::addToList(const std::string n)
 {
-    Node* newList = new Node(n);
+	Node* newList = new Node(n);
 
 	//if no node exists in the list
-    if(head == NULL)
-    {
-        head = newList;
-    }
+	if(head == NULL)
+	{
+		head = newList;
+	}
 
 	//if node exists in the list already
-    else
-    {
-        newList->next = head;
-        head = newList;
-    }
+	else
+	{
+		newList->next = head;
+		head = newList;
+	}
 
 	//increment the list size
-    size++;
+	size++;
 }
 
 void LinkedList::display()
@@ -96,19 +96,19 @@ void LinkedList::deleteFront()
 
 LinkedList::reverse()
 {
-    Node* current = head;
-    Node* prev = NULL;
-    Node* next = NULL;
+	Node* current = head;
+	Node* prev = NULL;
+	Node* next = NULL;
     
-    while(current != NULL)
-    {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
-    }
+	while(current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
 
-    head = prev;
+	head = prev;
 }
 LinkedList::~LinkedList()
 {
