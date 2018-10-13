@@ -80,7 +80,9 @@ Node<T>* AVL<T>::insert(Node<T>* root,T value)
 
     while(trav != NULL)
     {
-        parents[index++] = trav;
+        parents[index] = trav;
+
+        index++;
 
         if(trav->data > value)
            trav = trav->left;
@@ -91,9 +93,10 @@ Node<T>* AVL<T>::insert(Node<T>* root,T value)
 
     trav = node;
 
+    //updates the tree node's heights and rotate if needed
     for(int i = 0; i < index; i++)
     {
-        checkRotations(parents[index - i - 1]);
+        checkRotations(parents[index - i]);
     }
 
     return root;
