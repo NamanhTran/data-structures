@@ -16,18 +16,18 @@ AVL Rotations:
 
     1) Left Rotations:
         a) Rotates the root to the left
-![altText](https://raw.githubusercontent.com/NamanhTran/data-structures/master/trees/avl/pictures/RotateL.PNG)
+![altText](https://raw.githubusercontent.com/NamanhTran/data-structures/master/etc/pictures/RotateL.PNG)
 
     2) Right Rotations:
         a) Rotates the root to the right
-![altText](https://raw.githubusercontent.com/NamanhTran/data-structures/master/trees/avl/pictures/RotateR.PNG)
+![altText](https://raw.githubusercontent.com/NamanhTran/data-structures/master/etc/pictures/RotateR.PNG)
 
     3) Double Rotations:
         a) Case for zig-zags in tree
         b) Two Rotations
         c) Can be Left Rotation then Right Rotations or Right Rotation then Left Rotation
         d) Want to rotate one node down
-![altText](https://raw.githubusercontent.com/NamanhTran/data-structures/master/trees/avl/pictures/RotateLR.PNG)
+![altText](https://raw.githubusercontent.com/NamanhTran/data-structures/master/etc/pictures/RotateLR.PNG)
 
 AVL Sort:
 
