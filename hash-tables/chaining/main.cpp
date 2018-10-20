@@ -4,5 +4,5 @@ using namespace std;
 
 int main()
 {
-    HashTable test;
+    HashTable<int> test;
 }

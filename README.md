@@ -1,7 +1,7 @@
 Data Structures
 
 **Contains:**
-  
+
       List Data Structures
 
         - Singly Linked List
@@ -22,15 +22,23 @@ Data Structures
       Trees
 
         - Binary Search Trees
-        - AVL Trees **(IN PROGRESS)**
+        - AVL Trees
+
+      Hash Tables
+
+        - Chaining
 
  **Planned Future Additions:**
- 
+
       List Data Structures
 
         - Skip List
 
       Hash Tables
+
+        - Linear Probing
+        - Quadratic Probing
+        - Direct Hashing
 
       Trees
 
@@ -39,13 +47,12 @@ Data Structures
         - Red-Black Tree
         - Splay Tree
         - KD Tree
-        
+
       Graphs
-      
+
         - Adjacency List
         - Adjacency Matrix
         - Incidence Matrix
-        
+
   **Big O Cheat Sheet**
   ![alt text](https://raw.githubusercontent.com/NamanhTran/data-structures/master/etc/pictures/Screenshot%20from%202018-10-13%2013-42-11.png)
-        
