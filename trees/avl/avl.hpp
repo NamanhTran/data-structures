@@ -18,7 +18,7 @@ class AVL
     public:
         AVL();
         Node<T>* insert(Node<T>* root, T value);
-        void remove(T value);
+        Node<T>* erase(Node<T> *root, T value);
         Node<T>* find(Node<T>*, T value);
         int getHeight(Node<T>* node);
         void checkRotations(Node<T>** node);
@@ -71,7 +71,7 @@ Node<T>* AVL<T>::insert(Node<T>* root,T value)
         return node;
 
     // store pointers to node pointers because we will have to change
-    // their calues in the case of rotations
+    // their values in the case of rotations
     Node<T>** trav = root;
     Node<T>** parents[root->height + 1];
     int index = 0;
@@ -211,4 +211,12 @@ void AVL<T>::rightLeftRotation(Node<T>** head)
     rightRotation(&(*head)->left);
     leftRotation(head);
 }
+
+// Still need to implement
+template <typename T>
+Node<T>* AVL<T>::erase(Node<T> *root, T value)
+{
+    return NULL;
+}
+ 
 #endif
