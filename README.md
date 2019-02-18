@@ -27,6 +27,13 @@ Data Structures
       Hash Tables
 
         - Chaining
+        
+Algorithms
+
+**Contains:**
+      
+      - Union Find
+            - Dynamic Connectivity
 
  **Planned Future Additions:**
 
