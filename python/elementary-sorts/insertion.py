@@ -1,11 +1,10 @@
-# Translated code from Java
-# Java code from Algorithm Part 1, Princeton University
+# Java code from Algorithm Part 1, Princeton University translated to Python
 
 from os import chdir
 from os import getcwd
 from os import listdir
 
-# Insertion sort implementation arr passed has to have a compareTo function attacted to each object
+# Insertion sort implementation arr passed has to have a compare_to function attacted to each object
 class Insertion:
     def sort(self, arr):
         # Goes through each element in the provided array
@@ -34,14 +33,14 @@ class Insertion:
 
 # Class required for each data type to use insertion sort (probably could do better)
 class Custom:
-    # Puts 
+    # Constructor to put data into val and the compare_to function
     def __init__(self, data, funct):
         self.val = data
         self.compare_to = funct
 
     # Allows for print() to print object's string when passing object into print
     def __repr__(self):
-        return repr(self.val)
+        return str(self.val)
 
 # Compares the two file names
 def file_compare(a, b):
