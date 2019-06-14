@@ -24,7 +24,7 @@ class Insertion:
 
     # Checks if a < b
     def less(self, a, b):
-        return a.compareTo(b) < 0
+        return a.compare_to(a.val, b.val) < 0
 
     # Swap a and b in arr
     def exch(self, arr, a, b):
@@ -33,33 +33,35 @@ class Insertion:
         arr[b] = swap
 
 # Class required for each data type to use insertion sort (probably could do better)
-class File:
-    def __init__(self, str):
-        self.string = str
-
-    # Compares the two file names
-    def compareTo(self, b):
-        if (self.string.lower() < b.string.lower()):
-            return -1
-        
-        if (self.string.lower() > b.string.lower()):
-            return 1
-        
-        return 0
+class Custom:
+    # Puts 
+    def __init__(self, data, funct):
+        self.val = data
+        self.compare_to = funct
 
     # Allows for print() to print object's string when passing object into print
     def __repr__(self):
-        return repr(self.string)
+        return repr(self.val)
+
+# Compares the two file names
+def file_compare(a, b):
+    if (a.lower() < b.lower()):
+        return -1
+
+    if (a.lower() > b.lower()):
+        return 1
+
+    return 0
 
 def main():
-    # Example use of the insertion sort using files
+    # Example use of the insertion sort using files names
     chdir('../')
     chdir('../')
 
     files = listdir(getcwd())
 
     for i in range(len(files)):
-        files[i] = File(files[i])
+        files[i] = Custom(files[i], file_compare)
 
     algorithm = Insertion()
     algorithm.sort(files)
